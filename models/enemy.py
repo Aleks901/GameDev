@@ -9,4 +9,5 @@ class Enemy:
         self.mana = mana
         self.energy = energy
         self.evasion = evasion
+        self.items = {}
         

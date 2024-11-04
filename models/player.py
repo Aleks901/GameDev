@@ -33,6 +33,7 @@ class Player:
         self.strength = 5 + (self.level*2)
         self.accuracy = 10 + (self.level*2)
         self.items = {'Head': None, 'Chest': None, 'Legs': None, 'Weapon': None}
+        self.inventory = {}
         
         
     def calculate_hit_chance(self, selected_target: Enemy):
@@ -49,3 +50,6 @@ class Player:
             print("Your attack missed!")
         print(f"Your hitchance: {hit_chance}%") # Used for testing
         print(f"You hit your target for: {damage} Damage!") # Used for testing
+    
+    
+            
