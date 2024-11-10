@@ -13,12 +13,19 @@ class Gear:
         self.evasion = evasion
         self.energy = energy
         
+    def __str__(self) -> str:
+        return f"{self.name}"
+    
+    def __repr__(self):
+        return self.__str__()
+        
     def equip_item(self, player: Player):
         if self.slot == 'Head':
             player.items['Head'] = self
             player.strength += self.strength
             player.mana += self.mana
             player.hitChance += self.hitChance
+            
     
     def equip_item_enemy(self, enemy: Enemy):
         if self.slot == 'Head':
@@ -30,7 +37,10 @@ class Gear:
     
     def unequip_item(self, player: Player):
         if self.slot == 'Head':
-            player.items.pop('Head')
+            player.inventory.append(self)
+            player.items.update({'Head': None})
             player.strength -= self.strength
             player.mana -= self.mana
             player.hitChance -= self.hitChance
+            
+    
